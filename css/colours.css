@@ -1,0 +1,37 @@
+html {
+    --fond-1: #204ecc;
+    --fond-2: #cc7320;
+    --fond-3: #25afa8;
+    --fond-4: #af2571;
+    --fond-sombre: #0f0f0f;
+    --fond-page: #f5f5ee;
+
+    --texte: #131212;
+    --citation: #858585;
+    --texte-clair: #eedbd3;
+
+    --accentuation-1: #764d47;
+    --accentuation-2: #cc7320;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        --fond-1: #15317c;
+        --fond-2: #cc7320;
+        --fond-3: #25afa8;
+        --fond-4: #af2571;
+        --fond-page: #2b2a33;
+
+        --texte: #f1e5e0;
+        --citation: #858585;
+
+        --accentuation-1: #96625a;
+        --accentuation-2: #cc7320;
+    }
+}
+
+body,
+html {
+    color: var(--texte);
+    background-color: var(--fond-page);
+}
