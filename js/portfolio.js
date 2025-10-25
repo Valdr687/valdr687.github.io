@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 $(document).ready(function () {
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    $("#github").attr("src", "./images/github-mark-white.png");  
+    $("#github").attr("src", "../images/icones/github-mark-white.png");  
   }
 });
 
