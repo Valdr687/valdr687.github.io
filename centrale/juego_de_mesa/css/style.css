@@ -29,7 +29,7 @@ main {
 
 /* keep hidden question blocks */
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 /* picture container: center, limit size, hide overflow */
