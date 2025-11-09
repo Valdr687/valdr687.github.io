@@ -11,6 +11,7 @@
     <meta name="theme-color" content="rgb(189, 103, 32)" />
     <!-- CSS / JS -->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript" src="./js/answer.js"></script>
     <!-- Fonts -->
 </head>
 
@@ -35,14 +36,17 @@
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
                     quibusdam eum temporibus modi veritatis quis quas magni similique eaque asperiores enim et
                     voluptatum error rerum sint, labore molestiae aliquam?</p>
-                <input name="input0" id="input0" type="text" placeholder="Entra 'ok'"/>
+                <div class="question">
+                    <input name="input0" id="input0" type="text" placeholder="Entra 'Estamos listos'" />
+                    <button onclick="getInputValue('input0')">Empieza ahora</button>
+                </div>
             </div>
         </div>
-        <div class="container question" id="1">
-            <div class="background">
-                <image src="./pictures/1.jpg" alt="Fondo"></image>
-            </div>
+        <div class="container hidden" id="1">
             <div class="gauche">
+                <div class="background">
+                    <image src="./pictures/1.jpg" alt="Fondo"></image>
+                </div>
                 <div class="picture">
                     <image src="./pictures/1.jpg" alt="Juego de mesa"></image>
                 </div>
@@ -55,20 +59,20 @@
                     quidem porro veniam. Sint quod molestias quas voluptates, veritatis omnis expedita culpa fugit
                     excepturi.
                 </p>
-                <p for="input1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
-                    quibusdam eum
-                    temporibus modi veritatis quis quas magni similique eaque asperiores enim et voluptatum error
-                    rerum
-                    sint,
-                    labore molestiae aliquam?</p>
-                <input name="input1" id="input1" type="text" placeholder="Entra tu respuesta"/>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
+                    quibusdam eum temporibus modi veritatis quis quas magni similique eaque asperiores enim et
+                    voluptatum error rerum sint, labore molestiae aliquam?</p>
+                <div class="question">
+                    <input name="input0" id="input1" type="text" placeholder="Entra su respuesta" />
+                    <button onclick="getInputValue('input1')">Entregar</button>
+                </div>
             </div>
         </div>
-        <div class="container question" id="2">
-            <div class="background">
-                <image src="./pictures/2.jpg" alt="Fondo"></image>
-            </div>
+        <div class="container hidden" id="2">
             <div class="gauche">
+                <div class="background">
+                    <image src="./pictures/2.jpg" alt="Fondo"></image>
+                </div>
                 <div class="picture">
                     <image src="./pictures/2.jpg" alt="Juego de mesa"></image>
                 </div>
@@ -81,14 +85,95 @@
                     quidem porro veniam. Sint quod molestias quas voluptates, veritatis omnis expedita culpa fugit
                     excepturi.
                 </p>
-                <p for="input2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
-                    quibusdam eum
-                    temporibus modi veritatis quis quas magni similique eaque asperiores enim et voluptatum error
-                    rerum
-                    sint,
-                    labore molestiae aliquam?</p>
-                <input name="input2" id="input2" type="text" placeholder="Entra tu respuesta"/>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
+                    quibusdam eum temporibus modi veritatis quis quas magni similique eaque asperiores enim et
+                    voluptatum error rerum sint, labore molestiae aliquam?</p>
+                <div class="question">
+                    <input name="input0" id="input2" type="text" placeholder="Entra su respuesta" />
+                    <button onclick="getInputValue('input2')">Entregar</button>
+                </div>
             </div>
+        </div>
+        <div class="container hidden" id="3">
+            <div class="gauche">
+                <div class="background">
+                    <image src="./pictures/3.jpg" alt="Fondo"></image>
+                </div>
+                <div class="picture">
+                    <image src="./pictures/3.jpg" alt="Juego de mesa"></image>
+                </div>
+            </div>
+            <div class="droite">
+                <h2>Juego de mesa</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit eum sunt cumque sit assumenda
+                    quasi
+                    officiis
+                    quidem porro veniam. Sint quod molestias quas voluptates, veritatis omnis expedita culpa fugit
+                    excepturi.
+                </p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
+                    quibusdam eum temporibus modi veritatis quis quas magni similique eaque asperiores enim et
+                    voluptatum error rerum sint, labore molestiae aliquam?</p>
+                <div class="question">
+                    <input name="input0" id="input3" type="text" placeholder="Entra su respuesta" />
+                    <button onclick="getInputValue('input3')">Entregar</button>
+                </div>
+            </div>
+        </div>
+        <div class="container hidden" id="4">
+            <div class="gauche">
+                <div class="background">
+                    <image src="./pictures/4.jpg" alt="Fondo"></image>
+                </div>
+                <div class="picture">
+                    <image src="./pictures/4.jpg" alt="Juego de mesa"></image>
+                </div>
+            </div>
+            <div class="droite">
+                <h2>Juego de mesa</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit eum sunt cumque sit assumenda
+                    quasi
+                    officiis
+                    quidem porro veniam. Sint quod molestias quas voluptates, veritatis omnis expedita culpa fugit
+                    excepturi.
+                </p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
+                    quibusdam eum temporibus modi veritatis quis quas magni similique eaque asperiores enim et
+                    voluptatum error rerum sint, labore molestiae aliquam?</p>
+                <div class="question">
+                    <input name="input0" id="input4" type="text" placeholder="Entra su respuesta" />
+                    <button onclick="getInputValue('input4')">Entregar</button>
+                </div>
+            </div>
+        </div>
+        <div class="container hidden" id="5">
+            <div class="gauche">
+                <div class="background">
+                    <image src="./pictures/5.jpg" alt="Fondo"></image>
+                </div>
+                <div class="picture">
+                    <image src="./pictures/5.jpg" alt="Juego de mesa"></image>
+                </div>
+            </div>
+            <div class="droite">
+                <h2>Juego de mesa</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit eum sunt cumque sit assumenda
+                    quasi
+                    officiis
+                    quidem porro veniam. Sint quod molestias quas voluptates, veritatis omnis expedita culpa fugit
+                    excepturi.
+                </p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
+                    quibusdam eum temporibus modi veritatis quis quas magni similique eaque asperiores enim et
+                    voluptatum error rerum sint, labore molestiae aliquam?</p>
+                <div class="question">
+                    <input name="input0" id="input5" type="text" placeholder="Entra su respuesta" />
+                    <button onclick="getInputValue('input5')">Entregar</button>
+                </div>
+            </div>
+        </div>
+        <div class="end hidden" id="6">
+            <h2>¡Felicidades! Habéis completado el juego de mesa.</h2>
         </div>
     </main>
 </body>

@@ -5,6 +5,8 @@ body {
     height: 100%;
     box-sizing: border-box;
     color: rgb(226, 239, 250);
+    font-size: calc(14px + 0.5vw);
+    font-family: 'Open Sans', sans-serif
 }
 
 main {
@@ -26,8 +28,8 @@ main {
 }
 
 /* keep hidden question blocks */
-.question {
-    /* display: none; */
+.hidden {
+    display: none;
 }
 
 /* picture container: center, limit size, hide overflow */
@@ -94,9 +96,32 @@ main {
     background-color: #362b2b;
 }
 
-.droite input {
-    margin-top: 5%;
+.question {
+    display: flex;
+    flex-direction: row;
+    padding: 5% 0;
+    justify-content: center;
 }
+
+.question button {
+    height: 100%;
+    align-self: center;
+    margin-left: 2ex;
+}
+
+.end {
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    background-color: #362b2b;
+}
+
+.end h2 {
+    margin: auto;
+    text-align: center;
+} 
 
 /* small screens: stack columns */
 @media (max-width: 800px) {
@@ -107,8 +132,8 @@ main {
         min-height: 100vh;
     }
 
-    .question {
-        /* display: none; */
+    .hidden {
+        display: none;
     }
 
     .gauche,
