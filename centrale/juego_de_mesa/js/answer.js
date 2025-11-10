@@ -13,7 +13,7 @@ function match(string, expected) {
             .replace(/\s+/g, ' '); // Normalize whitespace
     };
     
-    return normalize(string) === normalize(expected);
+    return normalize(string) == normalize(expected);
 }
 
 function getInputValue(id) {
