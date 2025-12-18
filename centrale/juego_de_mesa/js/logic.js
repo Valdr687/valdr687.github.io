@@ -76,6 +76,18 @@ function showAnswer(stageElement, stageType, correctAnswer) {
     <p class="answer-text">⏱️ ¡Tiempo agotado! La respuesta era: <strong>${correctAnswer}</strong></p>
   `;
   
+  // Add description if it's a personnage
+  if (stageType === 'personnage') {
+    const descriptionKey = stageElement.id.replace('_personnage', '_personnage_description');
+    const description = answers.descriptions[currentGameMode][descriptionKey];
+    if (description) {
+      const descriptionP = document.createElement('p');
+      descriptionP.className = 'description-text';
+      descriptionP.textContent = description;
+      answerReveal.appendChild(descriptionP);
+    }
+  }
+  
   // Insert before the question div
   const questionDiv = stageElement.querySelector('.question');
   if (questionDiv) {
@@ -274,6 +286,20 @@ function getInputValue(inputId) {
       if (currentElement && inputId.includes('personnage')) {
         const images = currentElement.querySelectorAll('.picture img');
         images.forEach(img => img.classList.remove('blurred'));
+        
+        // Show description for correct personnage answer
+        // Extract stage number from element ID (e.g., "classique_stage1_personnage" -> "stage1")
+        const stageMatch = currentElement.id.match(/stage(\d+)/);
+        if (stageMatch) {
+          const descriptionKey = `stage${stageMatch[1]}_personnage_description`;
+          const description = answers.descriptions[currentGameMode][descriptionKey];
+          if (description) {
+            const descriptionP = document.getElementById(currentElement.id + '_description');
+            if (descriptionP) {
+              descriptionP.textContent = description;
+            }
+          }
+        }
       }
       
       nextElement.classList.remove("hidden");
