@@ -11,7 +11,7 @@
     <meta name="theme-color" content="rgb(189, 103, 32)" />
     <!-- CSS / JS -->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <script type="text/javascript" src="./js/answer.js"></script>
+    <script type="module" src="./js/logic.js"></script>
     <!-- Fonts -->
 </head>
 
@@ -20,155 +20,466 @@
         <div class="container">
             <div class="gauche">
                 <div class="background">
-                    <image src="./pictures/0.jpg" alt="Fondo"></image>
+                    <img src="./pictures/0.png" alt="Fondo">
                 </div>
                 <div class="picture">
-                    <image src="./pictures/0.jpg" alt="Juego de mesa"></image>
+                    <img src="./pictures/0.png" alt="Juego de mesa">
                 </div>
             </div>
             <div class="droite">
-                <h1>Aventura en la actualidad</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit eum sunt cumque sit assumenda
-                    quasi
-                    officiis quidem porro veniam. Sint quod molestias quas voluptates, veritatis omnis expedita
-                    culpa
-                    fugit excepturi.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
-                    quibusdam eum temporibus modi veritatis quis quas magni similique eaque asperiores enim et
-                    voluptatum error rerum sint, labore molestiae aliquam?</p>
-                <div class="question">
-                    <input name="input0" id="input0" type="text" placeholder="Entra 'Estamos listos'" />
-                    <button onclick="getInputValue('input0')">Empieza ahora</button>
-                </div>
-            </div>
-        </div>
-        <div class="container hidden" id="1">
-            <div class="gauche">
-                <div class="background">
-                    <image src="./pictures/1.jpg" alt="Fondo"></image>
-                </div>
-                <div class="picture">
-                    <image src="./pictures/1.jpg" alt="Juego de mesa"></image>
-                </div>
-            </div>
-            <div class="droite">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit eum sunt cumque sit assumenda
-                    quasi
-                    officiis
-                    quidem porro veniam. Sint quod molestias quas voluptates, veritatis omnis expedita culpa fugit
-                    excepturi.
+                <h1>Viaje en América Latina</h1>
+                <p class="intro-text">
+                    ¡Descubre América Latina a través de un juego interactivo! Identifica países y personalidades que marcaron la región. ¡Cada etapa es un desafío contra el tiempo!
                 </p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
-                    quibusdam eum temporibus modi veritatis quis quas magni similique eaque asperiores enim et
-                    voluptatum error rerum sint, labore molestiae aliquam?</p>
-                <div class="question">
-                    <input name="input0" id="input1" type="text" placeholder="Entra su respuesta" />
-                    <button onclick="getInputValue('input1')">Entregar</button>
-                </div>
-            </div>
-        </div>
-        <div class="container hidden" id="2">
-            <div class="gauche">
-                <div class="background">
-                    <image src="./pictures/2.jpg" alt="Fondo"></image>
-                </div>
-                <div class="picture">
-                    <image src="./pictures/2.jpg" alt="Juego de mesa"></image>
-                </div>
-            </div>
-            <div class="droite">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit eum sunt cumque sit assumenda
-                    quasi
-                    officiis
-                    quidem porro veniam. Sint quod molestias quas voluptates, veritatis omnis expedita culpa fugit
-                    excepturi.
+                <p class="mode-choice">
+                    <strong>Elige tu modo:</strong>
                 </p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
-                    quibusdam eum temporibus modi veritatis quis quas magni similique eaque asperiores enim et
-                    voluptatum error rerum sint, labore molestiae aliquam?</p>
-                <div class="question">
-                    <input name="input0" id="input2" type="text" placeholder="Entra su respuesta" />
-                    <button onclick="getInputValue('input2')">Entregar</button>
+                <ul class="game-modes">
+                    <li><strong>Clásica:</strong> Figuras contemporáneas del presente</li>
+                    <li><strong>Histórica:</strong> Personajes que forjaron la historia</li>
+                </ul>
+                <div class="button_start">
+                    <button onclick="startGame('classique')">Clásica</button>
+                    <button onclick="startGame('historique')">Histórica</button>
                 </div>
             </div>
         </div>
-        <div class="container hidden" id="3">
-            <div class="gauche">
-                <div class="background">
-                    <image src="./pictures/3.jpg" alt="Fondo"></image>
+        <div id="classique" class="hidden">
+            <div class="container hidden pays" id="classique_stage1_pays">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/countries/argentina.png" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img src="./pictures/countries/argentina.png" alt="Juego de mesa">
+                    </div>
                 </div>
-                <div class="picture">
-                    <image src="./pictures/3.jpg" alt="Juego de mesa"></image>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="classique_stage1_pays_description">
+                        ¡Bienvenidos en el primero país de vuestra aventura!
+
+                        Para avanzar en el juego, tenéis que decir en qué país estáis.
+                    </p>
+                    <div class="question">
+                        <input name="classique_stage1_pays_answer" id="classique_stage1_pays_answer" type="text"
+                            placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('classique_stage1_pays_answer')">Entregar</button>
+                    </div>
                 </div>
             </div>
-            <div class="droite">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit eum sunt cumque sit assumenda
-                    quasi
-                    officiis
-                    quidem porro veniam. Sint quod molestias quas voluptates, veritatis omnis expedita culpa fugit
-                    excepturi.
-                </p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
-                    quibusdam eum temporibus modi veritatis quis quas magni similique eaque asperiores enim et
-                    voluptatum error rerum sint, labore molestiae aliquam?</p>
-                <div class="question">
-                    <input name="input0" id="input3" type="text" placeholder="Entra su respuesta" />
-                    <button onclick="getInputValue('input3')">Entregar</button>
+            <div class="container hidden" id="classique_stage1_personnage">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/answers/classique/1.jpg" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img class="blurred" src="./pictures/answers/classique/1.jpg" alt="Juego de mesa">
+                    </div>
+                </div>  
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="classique_stage1_personnage_description">
+                        ¡Bienvenidos en Argentina!
+
+                        Argentina es un país soberano de América del Sur, ubicado en el extremo sur y sudeste de dicho subcontinente. Es el
+                        segundo país más extenso de América Latina, el cuarto del continente americano y el octavo más extenso del mundo. Su
+                        capital y ciudad más poblada es Buenos Aires.
+
+                        Tieneis que encontrar el personaje famoso de este pais.
+                    </p>
+                    <div class="question">
+                        <input name="classique_stage1_personnage_answer" id="classique_stage1_personnage_answer"
+                            type="text" placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('classique_stage1_personnage_answer')">Entregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container hidden pays" id="classique_stage2_pays">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/countries/venezuela.png" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img src="./pictures/countries/venezuela.png" alt="Juego de mesa">
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="classique_stage2_pays_description">
+                        ¡Segundo país en vuestra aventura!
+
+                        Para avanzar en el juego, tenéis que decir en qué país estáis.
+                    </p>
+                    <div class="question">
+                        <input name="classique_stage2_pays_answer" id="classique_stage2_pays_answer" type="text"
+                            placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('classique_stage2_pays_answer')">Entregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container hidden" id="classique_stage2_personnage">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/answers/classique/2.jpg" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img class="blurred" src="./pictures/answers/classique/2.jpg" alt="Juego de mesa">
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="classique_stage2_personnage_description">
+                        ¡Bienvenidos en Venezuela!
+
+                        Venezuela es un país soberano situado en la parte septentrional de América del Sur, constituido por un área continental y por un gran número de islas e islotes en el mar Caribe. Su capital y mayor aglomeración urbana es la ciudad de Caracas. Es conocido por sus vastas reservas de petróleo y su rica biodiversidad.
+
+                        Tieneis que encontrar el personaje famoso de este pais.
+                    </p>
+                    <div class="question">
+                        <input name="classique_stage2_personnage_answer" id="classique_stage2_personnage_answer"
+                            type="text" placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('classique_stage2_personnage_answer')">Entregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container hidden pays" id="classique_stage3_pays">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/countries/colombia.png" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img src="./pictures/countries/colombia.png" alt="Juego de mesa">
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="classique_stage3_pays_description">
+                        ¡Tercer país en vuestra aventura!
+
+                        Para avanzar en el juego, tenéis que decir en qué país estáis.
+                    </p>
+                    <div class="question">
+                        <input name="classique_stage3_pays_answer" id="classique_stage3_pays_answer" type="text"
+                            placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('classique_stage3_pays_answer')">Entregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container hidden" id="classique_stage3_personnage">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/answers/classique/3.jpg" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img class="blurred" src="./pictures/answers/classique/3.jpg" alt="Juego de mesa">
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="classique_stage3_personnage_description">
+                        ¡Bienvenidos en Colombia!
+
+                        Colombia es una república unitaria de América situada en la región noroccidental de América del Sur. Su capital es Bogotá. Es el único país de América del Sur que tiene costas en el océano Pacífico y en el mar Caribe. Es reconocido mundialmente por su café, sus flores y su rica diversidad cultural.
+
+                        Tieneis que encontrar el personaje famoso de este pais.
+                    </p>
+                    <div class="question">
+                        <input name="classique_stage3_personnage_answer" id="classique_stage3_personnage_answer"
+                            type="text" placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('classique_stage3_personnage_answer')">Entregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container hidden pays" id="classique_stage4_pays">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/countries/mexico.png" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img src="./pictures/countries/mexico.png" alt="Juego de mesa">
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="classique_stage4_pays_description">
+                        ¡Cuarto y último país de vuestra aventura!
+
+                        Para avanzar en el juego, tenéis que decir en qué país estáis.
+                    </p>
+                    <div class="question">
+                        <input name="classique_stage4_pays_answer" id="classique_stage4_pays_answer" type="text"
+                            placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('classique_stage4_pays_answer')">Entregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container hidden" id="classique_stage4_personnage">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/answers/classique/4.jpg" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img class="blurred" src="./pictures/answers/classique/4.jpg" alt="Juego de mesa">
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="classique_stage4_personnage_description">
+                        ¡Bienvenidos en México!                            México es un país soberano ubicado en la parte meridional de América del Norte. Su capital es la Ciudad de México. Es el país hispanohablante más poblado del mundo y el tercero más grande de América Latina. Es famoso por su gastronomía, sus ruinas arqueológicas y su cultura milenaria.
+
+                            Tieneis que encontrar el personaje famoso de este pais.
+                        </p>
+                        <div class="question">
+                            <input name="classique_stage4_personnage_answer" id="classique_stage4_personnage_answer"
+                                type="text" placeholder="Entra su respuesta" />
+                            <button onclick="getInputValue('classique_stage4_personnage_answer')">Entregar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="container hidden" id="4">
-            <div class="gauche">
-                <div class="background">
-                    <image src="./pictures/4.jpg" alt="Fondo"></image>
+        <div id="historique" class="hidden">
+            <div class="container hidden pays" id="historique_stage1_pays">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/countries/mexico.png" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img src="./pictures/countries/mexico.png" alt="Juego de mesa">
+                    </div>
                 </div>
-                <div class="picture">
-                    <image src="./pictures/4.jpg" alt="Juego de mesa"></image>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="historique_stage1_pays_description">
+                        ¡Bienvenidos en el primero país de vuestra aventura histórica!
+
+                        Para avanzar en el juego, tenéis que decir en qué país estáis.
+                    </p>
+                    <div class="question">
+                        <input name="historique_stage1_pays_answer" id="historique_stage1_pays_answer" type="text"
+                            placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('historique_stage1_pays_answer')">Entregar</button>
+                    </div>
                 </div>
             </div>
-            <div class="droite">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit eum sunt cumque sit assumenda
-                    quasi
-                    officiis
-                    quidem porro veniam. Sint quod molestias quas voluptates, veritatis omnis expedita culpa fugit
-                    excepturi.
-                </p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
-                    quibusdam eum temporibus modi veritatis quis quas magni similique eaque asperiores enim et
-                    voluptatum error rerum sint, labore molestiae aliquam?</p>
-                <div class="question">
-                    <input name="input0" id="input4" type="text" placeholder="Entra su respuesta" />
-                    <button onclick="getInputValue('input4')">Entregar</button>
+            <div class="container hidden" id="historique_stage1_personnage">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/answers/historique/1.jpg" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img class="blurred" src="./pictures/answers/historique/1.jpg" alt="Juego de mesa">
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="historique_stage1_personnage_description">
+                        ¡Bienvenidos en México!
+
+                        México es un país soberano ubicado en la parte meridional de América del Norte. Su capital es la Ciudad de México. Es el país hispanohablante más poblado del mundo y el tercero más grande de América Latina. Es famoso por su gastronomía, sus ruinas arqueológicas y su cultura milenaria.
+
+                        Tieneis que encontrar el personaje famoso de este pais.
+                    </p>
+                    <div class="question">
+                        <input name="historique_stage1_personnage_answer" id="historique_stage1_personnage_answer"
+                            type="text" placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('historique_stage1_personnage_answer')">Entregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container hidden pays" id="historique_stage2_pays">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/countries/cuba.png" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img src="./pictures/countries/cuba.png" alt="Juego de mesa">
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="historique_stage2_pays_description">
+                        ¡Segundo país en vuestra aventura!
+
+                        Para avanzar en el juego, tenéis que decir en qué país estáis.
+                    </p>
+                    <div class="question">
+                        <input name="historique_stage2_pays_answer" id="historique_stage2_pays_answer" type="text"
+                            placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('historique_stage2_pays_answer')">Entregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container hidden" id="historique_stage2_personnage">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/answers/historique/2.jpg" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img class="blurred" src="./pictures/answers/historique/2.jpg" alt="Juego de mesa">
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="historique_stage2_personnage_description">
+                        ¡Bienvenidos en Cuba!
+
+                        Cuba es un país insular del Caribe, ubicado entre el mar Caribe, el golfo de México y el océano Atlántico. Su capital es La Habana. Cuba es conocida por su rica historia, su música, sus playas paradisíacas y su papel fundamental en la historia de América Latina.
+
+                        Tieneis que encontrar el personaje famoso de este pais.
+                    </p>
+                    <div class="question">
+                        <input name="historique_stage2_personnage_answer" id="historique_stage2_personnage_answer"
+                            type="text" placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('historique_stage2_personnage_answer')">Entregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container hidden pays" id="historique_stage3_pays">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/countries/venezuela.png" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img src="./pictures/countries/venezuela.png" alt="Juego de mesa">
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="historique_stage3_pays_description">
+                        ¡Tercer país en vuestra aventura!
+
+                        Para avanzar en el juego, tenéis que decir en qué país estáis.
+                    </p>
+                    <div class="question">
+                        <input name="historique_stage3_pays_answer" id="historique_stage3_pays_answer" type="text"
+                            placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('historique_stage3_pays_answer')">Entregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container hidden" id="historique_stage3_personnage">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/answers/historique/3.png" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img class="blurred" src="./pictures/answers/historique/3.png" alt="Juego de mesa">
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="historique_stage3_personnage_description">
+                        ¡Bienvenidos en Venezuela!
+
+                        Venezuela es un país soberano situado en la parte septentrional de América del Sur, constituido por un área continental y por un gran número de islas e islotes en el mar Caribe. Su capital y mayor aglomeración urbana es la ciudad de Caracas. Es conocido por sus vastas reservas de petróleo y su rica biodiversidad.
+
+                        Tieneis que encontrar el personaje famoso de este pais.
+                    </p>
+                    <div class="question">
+                        <input name="historique_stage3_personnage_answer" id="historique_stage3_personnage_answer"
+                            type="text" placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('historique_stage3_personnage_answer')">Entregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container hidden pays" id="historique_stage4_pays">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/countries/colombia.png" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img src="./pictures/countries/colombia.png" alt="Juego de mesa">
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="historique_stage4_pays_description">
+                        ¡Cuarto y último país de vuestra aventura!
+
+                        Para avanzar en el juego, tenéis que decir en qué país estáis.
+                    </p>
+                    <div class="question">
+                        <input name="historique_stage4_pays_answer" id="historique_stage4_pays_answer" type="text"
+                            placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('historique_stage4_pays_answer')">Entregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container hidden" id="historique_stage4_personnage">
+                <div class="gauche">
+                    <div class="background">
+                        <img src="./pictures/answers/historique/4.jpg" alt="Fondo">
+                    </div>
+                    <div class="picture">
+                        <img class="blurred" src="./pictures/answers/historique/4.jpg" alt="Juego de mesa">
+                    </div>
+                </div>
+                <div class="droite">
+                    <div class="timer">
+
+                    </div>
+                    <p id="historique_stage4_personnage_description">
+                        ¡Bienvenidos en Colombia!
+
+                        Colombia es una república unitaria de América situada en la región noroccidental de América del Sur. Su capital es Bogotá. Es el único país de América del Sur que tiene costas en el océano Pacífico y en el mar Caribe. Es reconocido mundialmente por su café, sus flores y su rica diversidad cultural.
+
+                        Tieneis que encontrar el personaje famoso de este pais.
+                    </p>
+                    <div class="question">
+                        <input name="historique_stage4_personnage_answer" id="historique_stage4_personnage_answer"
+                            type="text" placeholder="Entra su respuesta" />
+                        <button onclick="getInputValue('historique_stage4_personnage_answer')">Entregar</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="container hidden" id="5">
-            <div class="gauche">
-                <div class="background">
-                    <image src="./pictures/5.jpg" alt="Fondo"></image>
-                </div>
-                <div class="picture">
-                    <image src="./pictures/5.jpg" alt="Juego de mesa"></image>
-                </div>
-            </div>
-            <div class="droite">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit eum sunt cumque sit assumenda
-                    quasi
-                    officiis
-                    quidem porro veniam. Sint quod molestias quas voluptates, veritatis omnis expedita culpa fugit
-                    excepturi.
-                </p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus repellendus
-                    quibusdam eum temporibus modi veritatis quis quas magni similique eaque asperiores enim et
-                    voluptatum error rerum sint, labore molestiae aliquam?</p>
-                <div class="question">
-                    <input name="input0" id="input5" type="text" placeholder="Entra su respuesta" />
-                    <button onclick="getInputValue('input5')">Entregar</button>
-                </div>
-            </div>
+        <div class="end hidden" id="defeat_screen">
+            <h2>¡Derrota!</h2>
+            <p>No habéis logrado completar el juego a tiempo o no habéis obtenido suficientes respuestas correctas.</p>
+            <p class="score"></p>
+            <button onclick="location.reload()">Jugar de nuevo</button>
         </div>
-        <div class="end hidden" id="6">
-            <h2>¡Felicidades! Habéis completado el juego de mesa.</h2>
+        <div class="end hidden" id="classique_end_screen">
+            <h2>¡Felicidades! Habéis completado el juego de mesa clásico.</h2>
+            <p class="score"></p>
+            <button onclick="location.reload()">Jugar de nuevo</button>
+        </div>
+        <div class="end hidden" id="historique_end_screen">
+            <h2>¡Felicidades! Habéis completado el juego de mesa histórico.</h2>
+            <p class="score"></p>
+            <button onclick="location.reload()">Jugar de nuevo</button>
         </div>
     </main>
 </body>

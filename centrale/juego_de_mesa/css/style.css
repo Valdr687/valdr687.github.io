@@ -1,24 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+    --bg-primary: #2c1810;
+    --bg-secondary: #4a2c1f;
+    --text-primary: #f5e6d3;
+    --text-secondary: #d4b896;
+    --accent-color: #d4691f;
+    --accent-hover: #e87d2f;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-primary: #f5e6d3;
+        --bg-secondary: #e8d4bd;
+        --text-primary: #2c1810;
+        --text-secondary: #4a2c1f;
+        --accent-color: #d4691f;
+        --accent-hover: #e87d2f;
+    }
+}
+
 html,
 body {
     margin: 0;
+    padding: 0;
+    width: 100%;
     max-width: 100vw;
     height: 100%;
     box-sizing: border-box;
-    color: rgb(226, 239, 250);
+    overflow-x: hidden;
+    color: var(--text-primary);
     font-size: calc(14px + 0.5vw);
-    font-family: 'Open Sans', sans-serif
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bg-primary);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Teko', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
 }
 
 main {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
+    overflow-x: hidden;
     height: 100vh;
+    width: 100%;
+    max-width: 100vw;
 }
 
 .container {
     width: 100%;
+    max-width: 100vw;
     height: 100vh;
     scroll-snap-align: start;
+    overflow: hidden;
 
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -93,7 +134,72 @@ main {
     padding: 10%;
     display: flex;
     flex-direction: column;
-    background-color: #362b2b;
+    background-color: var(--bg-secondary);
+    overflow-y: auto;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+@media (max-width: 800px) {
+    .droite {
+        overflow-y: visible;
+        height: auto;
+        min-height: 50vh;
+    }
+}
+
+.droite p {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+.timer {
+    font-family: 'Teko', sans-serif;
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-align: center;
+    padding: 1rem 0;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+}
+
+.answer-reveal {
+    background-color: rgba(212, 105, 31, 0.2);
+    border: 2px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    animation: slideIn 0.5s ease-out;
+}
+
+.answer-reveal .answer-text {
+    font-size: 1.3em;
+    text-align: center;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.answer-reveal strong {
+    color: var(--accent-color);
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .question {
@@ -103,10 +209,127 @@ main {
     justify-content: center;
 }
 
+.question input {
+    flex: 1;
+    padding: 0.8em;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.question input:focus {
+    outline: none;
+    border-color: var(--accent-hover);
+    box-shadow: 0 0 0 3px rgba(212, 105, 31, 0.2);
+}
+
 .question button {
     height: 100%;
     align-self: center;
     margin-left: 2ex;
+    padding: 0.8em 1.5em;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Teko', sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    letter-spacing: 0.05em;
+}
+
+.question button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.question button:active {
+    transform: translateY(0);
+}
+
+/* Home page styles */
+.intro-text {
+    font-size: 1.05em;
+    line-height: 1.5;
+    margin: 1rem 0 1.5rem 0;
+    text-align: center;
+}
+
+.mode-choice {
+    font-size: 1.15em;
+    margin: 1rem 0 0.5rem 0;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.game-modes {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.game-modes li {
+    padding: 0.6rem 1rem;
+    margin: 0.4rem 0;
+    background-color: rgba(212, 105, 31, 0.1);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+    line-height: 1.4;
+}
+
+.game-modes li strong {
+    color: var(--accent-color);
+    font-size: 1.05em;
+}
+
+.button_start {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.button_start button {
+    padding: 1em 2em;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Teko', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.button_start button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.button_start button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Blur effect for personnage images */
+.picture img.blurred {
+    filter: blur(50px) brightness(0.7) !important;
+    transition: filter 0.5s ease;
+}
+
+.picture img:not(.blurred) {
+    filter: none;
+    transition: filter 0.5s ease;
 }
 
 .end {
@@ -114,13 +337,56 @@ main {
     height: 100vh;
     scroll-snap-align: start;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    background-color: #362b2b;
+    align-items: center;
+    background-color: var(--bg-secondary);
+    padding: 2rem;
 }
 
 .end h2 {
-    margin: auto;
+    margin: 1rem auto;
     text-align: center;
+    font-size: 3em;
+    color: var(--accent-color);
+}
+
+.end p {
+    text-align: center;
+    font-size: 1.2em;
+    max-width: 600px;
+}
+
+.end .score {
+    font-family: 'Teko', sans-serif;
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin: 1rem 0;
+}
+
+.end button {
+    margin-top: 2rem;
+    padding: 1em 2em;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Teko', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    letter-spacing: 0.05em;
+}
+
+.end button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.end button:active {
+    transform: translateY(0);
 } 
 
 /* small screens: stack columns */
@@ -129,21 +395,53 @@ main {
         display: flex;
         flex-direction: column-reverse;
         width: 100%;
+        max-width: 100vw;
         min-height: 100vh;
+        height: auto;
+        overflow-x: hidden;
+    }
+
+    .container.pays {
+        height: auto;
     }
 
     .hidden {
         display: none;
     }
 
-    .gauche,
-    .droite {
+    .gauche {
         grid-area: auto;
         height: 50vh;
+        min-height: 50vh;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .droite {
+        grid-area: auto;
+        height: auto;
+        min-height: auto;
+        width: 100%;
+        max-width: 100%;
+        padding: 5%;
     }
 
     .picture {
         max-width: 100%;
         max-height: 45vh;
+    }
+
+    .question {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .question input {
+        min-width: 0;
+    }
+
+    .question button {
+        margin-left: 0;
+        width: 100%;
     }
 }
